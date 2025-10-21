@@ -1,5 +1,5 @@
 {% set name = "pyobjc-framework-security" %}
-{% set version = "11.1" %}
+{% set version = "12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: dabcee6987c6bae575e2d1ef0fcbe437678c4f49f1c25a4b131a5e960f31a2da
+  sha256: d64d069da79fbf1dadbc091717604843b9d5be96670f7b40bc9a08df12b4045b
 
 build:
   script:
@@ -17,7 +17,7 @@ build:
     - export CFLAGS="${CFLAGS} -Wno-unused-command-line-argument"  # [py == 37 or py == 38]
     - {{ PYTHON }} -m pip install --no-deps . -vv
   skip: true  # [not osx or py2k or python_impl == 'pypy' or (arm64 and py < 39)]
-  number: 1
+  number: 0
 
 requirements:
   build:
